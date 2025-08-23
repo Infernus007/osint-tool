@@ -5,12 +5,13 @@ A comprehensive, scalable, and maintainable investigation platform built with Re
 ## 🚀 Features
 
 ### Investigation Services
-- **📰 News Analysis** - Sentiment analysis, entity extraction, and credibility scoring
-- **🔍 Reverse Image Search** - Multi-engine image search and source tracing  
-- **📱 Social Media Intelligence** - Profile analysis and content monitoring
-- **🏛️ Government Records** - Public records, court documents, and official databases
-- **📧 Email Analysis** - Header analysis, breach detection, and domain validation
-- **🕳️ Dark Web Monitoring** - Threat detection and credential monitoring
+- **📰 News Analysis:** Monitors news articles and extracts key entities such as names of people, locations, organizations, and vehicle numbers.
+- **🖼️ Reverse Image Search:** Accepts an image to perform a comprehensive reverse search across engines like Google, Yandex, and Bing to find its online presence.
+- **📱 Social Media Scraping:** Scrapes public data from platforms like Facebook, Instagram, X, and LinkedIn based on identifiers like a phone number, email, or username.
+- **🏛️ Government Site Scraping:** Retrieves official records from public Indian government portals like VAHAN (for vehicle details) and e-Courts (for case records).
+- **📧 Email Analysis:** Analyzes an email address to check for exposure in data breaches, verify domain records, and discover associated social media or Gravatar profiles.
+- **🕸️ Dark Web Monitoring:** Performs targeted scraping of known dark web forums and marketplaces for specific keywords, email addresses, or phone numbers.
+
 
 ### Technical Features
 - **🔒 Authentication & Authorization** - Protected routes and user management
@@ -141,13 +142,5 @@ Each investigation service provides specialized capabilities:
 - **Email Analysis**: Header analysis, breach checking, domain validation
 - **Dark Web Monitoring**: Threat detection, credential monitoring, keyword tracking
 
-## 🔒 Security
-
-- JWT-based authentication with protected routes
-- Input validation with Zod schemas
-- Secure API communications
-- Environment-based configuration
-
 ---
 
-**Built with modern React and TypeScript for digital investigation professionals**
