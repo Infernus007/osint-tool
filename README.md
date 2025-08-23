@@ -131,6 +131,74 @@ npm run build           # Production build
 npm run preview         # Test build locally
 ```
 
+## 📝 Onboarding
+
+Welcome to the Investigation Platform! To get started as a new developer:
+
+1. **Clone the repository**
+   ```bash
+   git clone <repo-url>
+   cd my-app
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**
+   - Copy `.env.local` to `.env.development` and update values as needed.
+
+4. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+5. **Explore the codebase**
+   - Review the [Project Structure](#-project-structure) section above.
+   - Check out the `src/services/` and `src/hooks/` folders for service logic.
+
+6. **Run tests**
+   ```bash
+   npm test
+   ```
+
+7. **Ask for help**
+   - If you have questions, reach out to the maintainers or open a discussion.
+
+## 🤝 Contributing Guidelines
+
+We welcome contributions! Please follow these guidelines:
+
+- **Branching**
+  - Create feature branches from `main` (e.g., `feature/news-analysis-improvements`).
+  - Use descriptive branch names.
+
+- **Commits**
+  - Write clear, concise commit messages.
+  - Group related changes into a single commit.
+
+- **Pull Requests**
+  - Open a pull request against `main`.
+  - Fill out the PR template and describe your changes.
+  - Reference related issues if applicable.
+
+- **Code Style**
+  - Run `npm run lint` and `npm run format` before submitting.
+  - Ensure your code passes all tests (`npm test`).
+
+- **Testing**
+  - Add or update tests for new features and bug fixes.
+  - Ensure no tests are broken.
+
+- **Review**
+  - Respond to feedback and make requested changes promptly.
+
+- **Documentation**
+  - Update the README or add comments where necessary.
+
+Thank you for helping improve the Investigation Platform!
+
 ## 📚 Services Overview
 
 Each investigation service provides specialized capabilities:
