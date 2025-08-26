@@ -22,7 +22,7 @@ function App() {
       <AuthProvider>
         <InnerApp />
       </AuthProvider>
-      {env.VITE_ENABLE_DEV_TOOLS && <ReactQueryDevtools initialIsOpen={false} />}
+      {/* {env.VITE_ENABLE_DEV_TOOLS && <ReactQueryDevtools initialIsOpen={false} />} */}
     </QueryClientProvider>
   )
 }

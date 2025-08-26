@@ -77,11 +77,17 @@ export const Route = createFileRoute('/')({
         </div>
         
         {/* Bottom fade to features */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-900"></div>
-      </div>      <OSINTFeatures />
-      <OSINTToolsBento />
-      <OSINTDemoSection />
-      <OSINTUseCases />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-900"></div>      </div>
+      <OSINTFeatures />
+      <div id="tools">
+        <OSINTToolsBento />
+      </div>
+      <div id="demo">
+        <OSINTDemoSection />
+      </div>
+      <div id="about">
+        <OSINTUseCases />
+      </div>
       <OSINTMarquee />
       <ContactSection />
       <AnimatedFooter />

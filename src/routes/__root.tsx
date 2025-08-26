@@ -1,4 +1,5 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+import AnimatedNavbar from '@/components/animated-navbar'
 
 // import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import type { RouterContext } from '@/lib/router-context'
@@ -6,7 +7,9 @@ import type { RouterContext } from '@/lib/router-context'
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
-    <>      <div className="min-h-screen bg-black">
+    <>
+      <AnimatedNavbar />
+      <div className="min-h-screen bg-black">
         <Outlet />
       </div>
       {/* {env.VITE_ENABLE_DEV_TOOLS && <TanStackRouterDevtools />} */}
