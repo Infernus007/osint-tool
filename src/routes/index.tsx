@@ -75,10 +75,11 @@ export const Route = createFileRoute('/')({
         <div className="absolute inset-0 opacity-5">
           <div className="h-full w-full bg-[linear-gradient(to_right,rgba(139,92,246,0.3)_1px,transparent_1px),linear-gradient(to_bottom,rgba(139,92,246,0.2)_1px,transparent_1px)] bg-[size:3rem_3rem]"></div>
         </div>
-        
-        {/* Bottom fade to features */}
+          {/* Bottom fade to features */}
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-900"></div>      </div>
-      <OSINTFeatures />
+      <div id="features">
+        <OSINTFeatures />
+      </div>
       <div id="tools">
         <OSINTToolsBento />
       </div>
@@ -88,8 +89,12 @@ export const Route = createFileRoute('/')({
       <div id="about">
         <OSINTUseCases />
       </div>
-      <OSINTMarquee />
-      <ContactSection />
+      <div id="intelligence">
+        <OSINTMarquee />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
       <AnimatedFooter />
       
       <style>{`

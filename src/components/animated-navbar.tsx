@@ -33,12 +33,25 @@ export function AnimatedNavbar() {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '/' },
-    { name: 'Services', href: '/_authenticated/services' },
-    { name: 'Features', href: '#features' },
-    { name: 'Demo', href: '#demo' },
-    { name: 'About', href: '#about' }
+    { name: 'Home', href: '/', type: 'route' },
+    { name: 'Services', href: '/_authenticated/services', type: 'route' },
+    { name: 'Features', href: '#features', type: 'anchor' },
+    { name: 'Tools', href: '#tools', type: 'anchor' },
+    { name: 'Demo', href: '#demo', type: 'anchor' },
+    { name: 'About', href: '#about', type: 'anchor' },
+    { name: 'Contact', href: '#contact', type: 'anchor' }
   ];
+
+  const handleSmoothScroll = (href: string) => {
+    const element = document.querySelector(href) as HTMLElement;
+    if (element) {
+      const offsetTop = element.offsetTop - 100; // Account for fixed navbar height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <>
@@ -96,6 +109,10 @@ export function AnimatedNavbar() {
                     <a
                       href={item.href}
                       className="text-gray-300 hover:text-white transition-all duration-300 text-sm font-medium relative group"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSmoothScroll(item.href);
+                      }}
                     >
                       {item.name}
                       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
@@ -178,7 +195,11 @@ export function AnimatedNavbar() {
                     <a
                       href={item.href}
                       className="block text-gray-300 hover:text-white transition-colors py-2 text-sm font-medium"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleSmoothScroll(item.href);
+                        setIsMenuOpen(false);
+                      }}
                     >
                       {item.name}
                     </a>
