@@ -1,10 +1,12 @@
-import { RouterProvider } from '@tanstack/react-router'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { AuthProvider, useAuth } from '@/contexts/AuthContext'
-import { createRouterContext } from '@/lib/router-context'
-import { router, queryClient } from '@/router'
+import { RouterProvider } from '@tanstack/react-router'
+
+import { AuthProvider } from '@/app/providers/AuthProvider'
 import { env } from '@/config/env'
+import { createRouterContext } from '@/lib/router-context'
+import { queryClient,router } from '@/router'
+import { useAuth } from '@/shared/hooks/useAuth'
 
 function InnerApp() {
   const auth = useAuth()

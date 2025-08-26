@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { socialService } from '@/services/socialService'
-import type { SocialMediaSearch, ApiResponse } from '@/lib/schemas'
+
+import type { ApiResponse,SocialMediaSearch } from '@/lib/schemas'
 import type { SocialSearchResult } from '@/services/socialService'
+import { socialService } from '@/services/socialService'
 
 export interface SocialState {
   // Scrape Profile state

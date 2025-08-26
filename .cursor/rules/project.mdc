@@ -1,0 +1,128 @@
+---
+description: To maintain high code quality, we will adhere to a set of rules and best practices. This ensures the frontend is maintainable, scalable, and performant.
+globs:
+alwaysApply: false
+---
+
+### Code Quality & Best Practices Guide
+
+This guide outlines the core principles and rules for writing clean, efficient, and reliable code for the OSINT frontend.
+
+#### 1\. TypeScript Strictness & Type Safety
+
+  * **Principle**: All code must be type-safe. Avoid `any` and `// @ts-ignore` comments.
+  * **Rule**: All component props, function arguments, return values, and state variables must be explicitly typed.
+  * **Implementation**:
+      * Use Zod to define schemas for API request and response data.
+      * Infer TypeScript types from Zod schemas using `z.infer<typeof mySchema>`. This ensures your code types are directly coupled with your validation logic.
+      * Example:
+        ```typescript
+        // src/schema/social-media.ts
+        import { z } from 'zod';
+        export const SocialMediaScrapeResponseSchema = z.object({
+          message: z.string(),
+          task_id: z.string().uuid(),
+        });
+        export type SocialMediaScrapeResponse = z.infer<typeof SocialMediaScrapeResponseSchema>;
+
+        // src/api/social-media.ts
+        import { SocialMediaScrapeResponse } from '../schema/social-media';
+        // The function will now be type-checked based on the schema
+        async function startScrape(): Promise<SocialMediaScrapeResponse> { /* ... */ }
+        ```
+
+#### 2\. React Query Usage
+
+  * **Principle**: Treat the server as a state cache. Abstract all data fetching logic away from components.
+  * **Rule**: All API interactions must be encapsulated within custom React Query hooks.
+  * **Implementation**:
+      * Create a dedicated file for each service's hooks (e.g., `src/hooks/use-social-scrape.ts`).
+      * Use `useMutation` for `POST` requests and `useQuery` for `GET` requests.
+      * For asynchronous tasks, implement polling with `useQuery` by setting a `refetchInterval` or manually triggering `refetch` with a status check on the task.
+      * Example of a polling hook:
+        ```typescript
+        // src/hooks/use-social-scrape-results.ts
+        import { useQuery } from '@tanstack/react-query';
+        import apiClient from '../api/axios-client';
+        import { SocialMediaScrapeResultsSchema } from '../schema/social-media'; // Assumed schema
+
+        export const useSocialScrapeResults = (taskId: string) => {
+          return useQuery({
+            queryKey: ['socialScrapeResults', taskId],
+            queryFn: async () => {
+              const response = await apiClient.get(`/results/${taskId}`);
+              const data = response.data;
+              // Validate with Zod before returning
+              SocialMediaScrapeResultsSchema.parse(data.data);
+              return data;
+            },
+            enabled: !!taskId, // Only run the query if taskId exists
+            refetchInterval: (data) => data?.status === 'PENDING' ? 3000 : false, // Poll every 3s if pending
+          });
+        };
+        ```
+
+#### 3\. State Management (Zustand)
+
+  * **Principle**: Separate global state from local component state.
+  * **Rule**: Use Zustand for a minimal, non-reactive global state (e.g., loading indicators, user alerts). Avoid putting transient or complex data in global state.
+  * **Implementation**:
+      * Define stores in `src/state/`.
+      * Keep stores lean and focused.
+      * Example:
+        ```typescript
+        // src/state/global-store.ts
+        import { create } from 'zustand';
+
+        interface GlobalState {
+          isLoading: boolean;
+          setLoading: (status: boolean) => void;
+        }
+
+        export const useGlobalStore = create<GlobalState>((set) => ({
+          isLoading: false,
+          setLoading: (status) => set({ isLoading: status }),
+        }));
+        ```
+
+#### 4\. Component Design
+
+  * **Principle**: Components should be small, reusable, and have a single responsibility.
+  * **Rule**:
+      * Break down large pages into smaller, single-purpose components.
+      * Use Shadcn UI components for a consistent design system and to avoid rebuilding common UI elements.
+      * Pass data via props, avoiding unnecessary prop drilling by using composition.
+  * **Implementation**:
+      * A page like `SocialMediaPage` should only handle the overall layout and state management. It should render sub-components like `<SocialMediaForm />` and `<SocialMediaResultsTable />`.
+      * Example (`SocialMediaPage.tsx`):
+        ```tsx
+        // Only handles data flow and layout, delegates UI to sub-components
+        const SocialMediaPage = () => {
+          const [taskId, setTaskId] = useState<string | null>(null);
+
+          const startScrapeMutation = useMutation({ /* ... */ });
+          const { data, isLoading } = useSocialScrapeResults(taskId);
+
+          const handleSubmit = (values: any) => {
+            startScrapeMutation.mutate(values, {
+              onSuccess: (response) => {
+                setTaskId(response.task_id);
+              },
+            });
+          };
+
+          return (
+            <div className="container p-4">
+              <SocialMediaForm onSubmit={handleSubmit} />
+              {startScrapeMutation.isPending && <p>Starting scrape...</p>}
+              {isLoading && <p>Fetching results...</p>}
+              {data && <SocialMediaResultsTable data={data.data} />}
+            </div>
+          );
+        };
+        ``
+        `
+
+    When developing the UI refer to the docs and only install them via npx and shadcn as mentioned in the documentations and rename them if installing from third party libs like origin UI , skipper UI and mvp blocks
+
+    when using simple components like file dialog , input file, file upload, layouts etc refer to origin UI for its inbuilt components for design animations etc refer to the skiper ui or mvpblocks

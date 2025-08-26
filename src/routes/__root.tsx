@@ -1,12 +1,12 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/react-router'
+
 // import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 import type { RouterContext } from '@/lib/router-context'
 // import { env } from '@/config/env'
 
 export const Route = createRootRouteWithContext<RouterContext>()({
   component: () => (
-    <>
-      <div className="min-h-screen bg-background">
+    <>      <div className="min-h-screen bg-black">
         <Outlet />
       </div>
       {/* {env.VITE_ENABLE_DEV_TOOLS && <TanStackRouterDevtools />} */}

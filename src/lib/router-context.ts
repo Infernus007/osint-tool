@@ -1,5 +1,6 @@
 import { QueryClient } from '@tanstack/react-query'
-import type { AuthContextType } from '@/contexts/AuthContext'
+
+import type { AuthContextType } from '@/app/providers/AuthProvider'
 
 export interface RouterContext {
   queryClient: QueryClient

@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { newsService } from '@/services/newsService'
-import type { NewsAnalysis, NewsEntity, ApiResponse } from '@/lib/schemas'
+
+import type { ApiResponse,NewsAnalysis, NewsEntity } from '@/lib/schemas'
 import type { NewsAnalysisResult, NewsMonitorOptions } from '@/services/newsService'
+import { newsService } from '@/services/newsService'
 
 export interface NewsState {
   // Analysis state

@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { describe, it, expect, beforeEach } from 'vitest'
-import { AuthProvider } from '@/contexts/AuthContext'
+import { render, screen } from '@testing-library/react'
+import { beforeEach,describe, expect, it } from 'vitest'
+
+import { AuthProvider } from '@/app/providers/AuthProvider'
 
 // Example test for services
 describe('Services Integration', () => {

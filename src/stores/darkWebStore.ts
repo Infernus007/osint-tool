@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+
+import type { ApiResponse,DarkWebSearch } from '@/lib/schemas'
+import type { DarkWebMonitor,DarkWebSearchResponse } from '@/services/darkWebService'
 import { darkWebService } from '@/services/darkWebService'
-import type { DarkWebSearch, ApiResponse } from '@/lib/schemas'
-import type { DarkWebSearchResponse, DarkWebMonitor } from '@/services/darkWebService'
 
 export interface DarkWebState {
   // Search state

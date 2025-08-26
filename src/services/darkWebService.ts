@@ -1,6 +1,6 @@
-import { api } from '@/lib/api'
 import { API_ENDPOINTS } from '@/config/constants'
-import type { DarkWebSearch, ApiResponse } from '@/lib/schemas'
+import { api } from '@/lib/api'
+import type { ApiResponse,DarkWebSearch } from '@/lib/schemas'
 
 export interface DarkWebResult {
   id: string

@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
-import { imageService } from '@/services/imageService'
+
 import type { ApiResponse } from '@/lib/schemas'
 import type { ImageSearchResponse } from '@/services/imageService'
+import { imageService } from '@/services/imageService'
 
 export interface ImageState {
   // URL search state

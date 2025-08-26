@@ -1,6 +1,6 @@
-import { api } from '@/lib/api'
 import { API_ENDPOINTS } from '@/config/constants'
-import type { SocialMediaSearch, ApiResponse } from '@/lib/schemas'
+import { api } from '@/lib/api'
+import type { ApiResponse,SocialMediaSearch } from '@/lib/schemas'
 
 export interface SocialProfile {
   id: string

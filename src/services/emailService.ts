@@ -1,6 +1,6 @@
-import { api } from '@/lib/api'
 import { API_ENDPOINTS } from '@/config/constants'
-import type { EmailAnalysis, ApiResponse } from '@/lib/schemas'
+import { api } from '@/lib/api'
+import type { ApiResponse,EmailAnalysis } from '@/lib/schemas'
 
 export interface EmailAnalysisResult {
   email: string

@@ -1,7 +1,8 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+
+import type { ApiResponse,CourtSearch, VehicleSearch } from '@/lib/schemas'
 import { governmentService } from '@/services/governmentService'
-import type { VehicleSearch, CourtSearch, ApiResponse } from '@/lib/schemas'
 
 export interface GovernmentState {
   // Vehicle search

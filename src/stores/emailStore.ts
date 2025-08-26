@@ -1,8 +1,9 @@
 import { create } from 'zustand'
 import { devtools } from 'zustand/middleware'
+
+import type { ApiResponse,EmailAnalysis } from '@/lib/schemas'
+import type { DomainInfo,EmailAnalysisResult } from '@/services/emailService'
 import { emailService } from '@/services/emailService'
-import type { EmailAnalysis, ApiResponse } from '@/lib/schemas'
-import type { EmailAnalysisResult, DomainInfo } from '@/services/emailService'
 
 export interface EmailState {
   // Analysis state

@@ -1,6 +1,6 @@
-import { api } from '@/lib/api'
 import { API_ENDPOINTS } from '@/config/constants'
-import type { VehicleSearch, CourtSearch, ApiResponse } from '@/lib/schemas'
+import { api } from '@/lib/api'
+import type { ApiResponse,CourtSearch, VehicleSearch } from '@/lib/schemas'
 
 export interface VehicleInfo {
   registrationNumber: string
