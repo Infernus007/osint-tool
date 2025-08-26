@@ -222,7 +222,7 @@ export default function OSINTUseCases() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <OSINTButton variant="primary" size="lg" icon={Search}>
+          <OSINTButton variant="primary" size="md" icon={Search}>
             Discover Your Use Case
           </OSINTButton>
         </motion.div>

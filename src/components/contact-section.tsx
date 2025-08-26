@@ -8,6 +8,7 @@ import {
   Send, 
   ArrowRight
 } from "lucide-react";
+import {OSINTButton} from "@/components/ui/osint-button";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -267,16 +268,9 @@ export function ContactSection() {
                 />
               </div>
 
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 flex items-center justify-center gap-2"
-              >
-                <Send className="w-4 h-4" />
+              <OSINTButton icon={Send} variant="primary" className="w-full">
                 Send Message
-                <ArrowRight className="w-4 h-4" />
-              </motion.button>
+              </OSINTButton>
             </form>
           </motion.div>
         </div>

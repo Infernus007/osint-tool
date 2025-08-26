@@ -17,6 +17,7 @@ import {
   Zap
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { OSINTButton } from "@/components/ui/osint-button";
 
 // Color mapping for consistent styling
 const colorMap = {
@@ -294,19 +295,17 @@ const DemoResults = ({ demo }: { demo: DemoExample }) => {
       </div>
 
       {/* Action Button */}
-      <motion.button
-        className="w-full p-4 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium
-                   hover:from-purple-700 hover:to-blue-700 transition-all duration-300
-                   focus:outline-none focus:ring-2 focus:ring-purple-500/50"
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
+      <OSINTButton
+        variant="primary"
+        size="md"
+        className="w-full"
         onClick={() => {
           setIsProcessing(true);
           setTimeout(() => setIsProcessing(false), 3000);
         }}
       >
         Run Full Investigation
-      </motion.button>
+      </OSINTButton>
     </div>
   );
 };
@@ -418,16 +417,18 @@ export default function OSINTDemoSection() {
             real-time monitoring, and comprehensive reporting capabilities.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium
-                             hover:from-purple-700 hover:to-blue-700 transition-all duration-300
-                             focus:outline-none focus:ring-2 focus:ring-purple-500/50">
+            <OSINTButton
+              variant="primary"
+              size="md"
+            >
               Start Free Trial
-            </button>
-            <button className="px-8 py-3 rounded-xl border border-gray-600 text-gray-300 font-medium
-                             hover:border-gray-500 hover:text-white transition-all duration-300
-                             focus:outline-none focus:ring-2 focus:ring-gray-500/50">
+            </OSINTButton>
+            <OSINTButton
+              variant="outline"
+              size="md"
+            >
               View Pricing
-            </button>
+            </OSINTButton>
           </div>
         </motion.div>
       </div>

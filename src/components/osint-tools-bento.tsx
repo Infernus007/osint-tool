@@ -12,6 +12,7 @@ import {
   ArrowRight,
   Activity
 } from "lucide-react";
+import { OSINTButton } from "@/components/ui/osint-button";
 
 // Modern SVG Graphics for each tool
 const EmailAnalysisGraphic = () => (
@@ -1031,9 +1032,12 @@ export function OSINTToolsBento() {
           viewport={{ once: true }}
           className="mt-16 text-center"
         >
-          <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-4 rounded-full font-medium transition-all duration-300 hover:scale-105 shadow-lg shadow-purple-600/25">
+          <OSINTButton
+            variant="primary"
+            size="md"
+          >
             Access Intelligence Suite
-          </button>
+          </OSINTButton>
         </motion.div>
       </div>
     </section>

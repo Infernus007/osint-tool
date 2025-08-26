@@ -13,6 +13,7 @@ import {
 import type { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { GoogleGeminiEffect } from '@/components/ui/google-gemini-effect';
+import { OSINTButton } from '@/components/ui/osint-button';
 
 // Define the feature item type
 type FeatureItem = {
@@ -202,10 +203,14 @@ export default function OSINTFeatures() {
                   viewport={{ once: true }}
                   className="mt-6 flex justify-center"
                 >
-                  <button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2">
-                    <Search className="w-4 h-4" />
+                  <OSINTButton
+                    variant="primary"
+                    size="md"
+                    icon={Search}
+                    iconPosition="left"
+                  >
                     Explore Tools
-                  </button>
+                  </OSINTButton>
                 </motion.div>
               </div>
               

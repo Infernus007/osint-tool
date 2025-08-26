@@ -1,6 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import { motion, type MotionValue } from "motion/react";
+import { OSINTButton } from "@/components/ui/osint-button";
 
 const transition = {
   duration: 0.1,
@@ -31,9 +32,13 @@ export const GoogleGeminiEffect = ({
           {description ||
             `Experience the power of advanced intelligence gathering with our cutting-edge platform`}
         </p>
-        <button className="font-bold bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-full px-8 py-3 mt-8 z-30 text-white shadow-2xl transition-all duration-300 hover:scale-105 border border-blue-400/30">
+        <OSINTButton
+          variant="primary"
+          size="md"
+          className="mt-8 z-30"
+        >
           OSINT Platform
-        </button>
+        </OSINTButton>
       </div>
       
       {/* Glowing beam effects */}
