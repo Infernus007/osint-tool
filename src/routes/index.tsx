@@ -6,7 +6,7 @@ import { OSINTMarquee } from '@/components/ui/marquee'
 import { OSINTToolsBento } from '@/components/osint-tools-bento'
 import { ContactSection } from '@/components/contact-section'
 import { AnimatedFooter } from '@/components/animated-footer'
-import { BottomMarquee } from '@/components/bottom-marquee'
+import OSINTDemoSection from '@/components/osint-demo-section'
 
 export const Route = createFileRoute('/')({
   component: () => (
@@ -78,8 +78,9 @@ export const Route = createFileRoute('/')({
         
         {/* Bottom fade to features */}
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-900"></div>
-      </div>        <OSINTFeatures />
+      </div>      <OSINTFeatures />
       <OSINTToolsBento />
+      <OSINTDemoSection />
       <OSINTUseCases />
       <OSINTMarquee />
       <ContactSection />
