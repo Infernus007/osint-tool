@@ -225,9 +225,10 @@ export default function AppHero() {
       </div>
 
       <motion.div 
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
+        style={{ transform: 'scale(1)' }}
         className="fadein-blur relative z-0 mx-auto mb-10 h-[400px] w-[400px] lg:absolute lg:top-1/2 lg:right-1/2 lg:mx-0 lg:mb-0 lg:h-[650px] lg:w-[650px] lg:translate-x-1/2 lg:-translate-y-2/3"
       >
         {/* Globe container with grid effect */}
@@ -480,13 +481,7 @@ export default function AppHero() {
           </div>
         </motion.div>
       </motion.main>
-      <div className="absolute right-auto -bottom-40 left-1/2 h-96 w-20 -translate-x-1/2 -rotate-45 rounded-full bg-gray-200/30 blur-[80px] lg:right-96 lg:left-auto lg:translate-x-0"></div>
-      <div className="absolute right-auto -bottom-52 left-1/2 h-96 w-20 -translate-x-1/2 -rotate-45 rounded-full bg-gray-300/20 blur-[80px] lg:right-auto lg:left-auto lg:translate-x-0"></div>
-      <div className="absolute right-auto -bottom-60 left-1/2 h-96 w-10 -translate-x-20 -rotate-45 rounded-full bg-gray-300/20 blur-[80px] lg:right-96 lg:left-auto lg:-translate-x-40"></div>
       
-      {/* Bottom edge blur fade - positioned at very bottom edge */}
-      <div className="absolute -bottom-16 left-0 right-0 h-20 bg-gradient-to-t from-black via-black/60 to-transparent pointer-events-none z-20"></div>
-      <div className="absolute -bottom-8 left-0 right-0 h-12 bg-gradient-to-t from-black/95 to-transparent backdrop-blur-sm pointer-events-none z-20"></div>
     </section>
   );
 }
