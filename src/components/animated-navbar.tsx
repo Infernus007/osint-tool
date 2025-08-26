@@ -16,7 +16,7 @@ export function AnimatedNavbar() {
   const navbarBackground = useTransform(
     scrollY,
     [0, 100],
-    ["rgba(0, 0, 0, 0.2)", "rgba(139, 92, 246, 0.1)"]
+    ["rgba(0, 0, 0, 0)", "rgba(139, 92, 246, 0.1)"]
   );
 
   const navbarScale = useTransform(scrollY, [0, 100], [1, 0.95]);
@@ -54,8 +54,8 @@ export function AnimatedNavbar() {
           }}
           className={cn(
             "mx-auto max-w-4xl transition-all duration-300",
-            "backdrop-blur-md border border-white/10 shadow-lg",
-            isScrolled ? "shadow-purple-500/20 bg-gradient-to-b from-purple-700 to-slate-950/80" : "shadow-black/20"
+            "backdrop-blur-md",
+            isScrolled ? "bg-gradient-to-b from-purple-700 to-slate-950/80" : ""
           )}
           initial={{ y: -100 }}
           animate={{ y: 0 }}
@@ -121,12 +121,13 @@ export function AnimatedNavbar() {
               transition={{ duration: 0.4, delay: 0.6 }}
             >
               <OSINTButton
-                variant={isScrolled ? "secondary" : "outline"}
+                variant="outline"
                 size="sm"
-                animate={true}
+                animate={false}
                 className={cn(
                   "transition-all duration-300",
-                  !isScrolled && "border-0 bg-transparent backdrop-blur-none shadow-none hover:bg-white/10 px-4 py-2"
+                  !isScrolled && "border-0 bg-transparent backdrop-blur-none shadow-none hover:bg-white/10 px-4 py-2",
+                  isScrolled && "px-3 py-1"
                 )}
               >
                 Get Started
