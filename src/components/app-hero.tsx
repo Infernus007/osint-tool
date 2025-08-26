@@ -370,7 +370,7 @@ export default function AppHero() {
               className="mb-6 text-left"
             >
               {/* OSINT Tool with text hover effect - 60% */}
-              <div className="h-20 md:h-28 lg:h-32 mb-2">
+              <div className="h-20 md:h-28 lg:h-32">
                 <TextHoverEffect 
                   text="OSINT Tool" 
                   automatic={true}
