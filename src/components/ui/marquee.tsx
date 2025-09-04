@@ -1,6 +1,7 @@
 "use client"
 
-import { JSX, useEffect, useId, useRef, useState } from "react"
+import type { JSX } from "react"
+import { useEffect, useId, useRef, useState } from "react"
 import { motion, useAnimation, useInView } from "motion/react"
 import {
   Shield,

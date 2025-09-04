@@ -14,15 +14,9 @@ export default defineConfig({
       generatedRouteTree: './src/routeTree.gen.ts',
       routeFileIgnorePrefix: '-',
     })
-  ],
-  resolve: {
+  ],  resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: ['./src/test/setup.ts'],
   },
 })

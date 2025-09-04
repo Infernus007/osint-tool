@@ -5,8 +5,7 @@ import {
   Mail, 
   Phone,
   MapPin, 
-  Send, 
-  ArrowRight
+  Send
 } from "lucide-react";
 import {OSINTButton} from "@/components/ui/osint-button";
 import { useState } from "react";

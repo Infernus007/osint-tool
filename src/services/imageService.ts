@@ -1,6 +1,6 @@
 import { API_ENDPOINTS } from '@/config/constants'
 import { api } from '@/lib/api'
-import type { ApiResponse,ImageSearch } from '@/lib/schemas'
+import type { ApiResponse } from '@/lib/schemas'
 
 export interface ImageSearchResult {
   id: string

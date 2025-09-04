@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 
 import { cleanup } from '@testing-library/react'
-import { afterAll,afterEach, beforeAll } from 'vitest'
+import { afterAll, afterEach, beforeAll, vi } from 'vitest'
 
 // Setup test environment
 beforeAll(() => {
@@ -19,14 +19,18 @@ beforeAll(() => {
       dispatchEvent: () => {},
     }),
   })
-
   // Mock IntersectionObserver
-  global.IntersectionObserver = class IntersectionObserver {
-    constructor() {}
-    observe() {}
-    unobserve() {}
-    disconnect() {}
-  }
+  const mockIntersectionObserver = vi.fn(() => ({
+    observe: vi.fn(),
+    unobserve: vi.fn(),
+    disconnect: vi.fn(),
+    takeRecords: vi.fn(),
+    root: null,
+    rootMargin: '',
+    thresholds: []
+  }));
+  
+  global.IntersectionObserver = mockIntersectionObserver;
 
   // Mock ResizeObserver
   global.ResizeObserver = class ResizeObserver {
